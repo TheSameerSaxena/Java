@@ -3,13 +3,24 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(areEqualByThreeDecimalPlaces(-3.1756,-3.175));
+
+        getDurationString(65,45);
+        getDurationString(3945);
     }
 
-    public static boolean areEqualByThreeDecimalPlaces(double firstNumber, double secNumber){
+    public static void getDurationString(int minutes, int seconds){
+        if(minutes >= 0 && seconds >= 0 && seconds <= 59){
+            int h = minutes / 60;
+            int m = minutes % 60;
+            System.out.println(h + "h " + m + "m " + seconds + "s");
+        }
+    }
 
-        double num1 = firstNumber * 1000;
-        double num2 = secNumber * 1000;
-        return (int) (num1) == (int) (num2);
+    public static void getDurationString(int seconds){
+        if(seconds >= 0){
+            int m = seconds / 60;
+            int s = seconds % 60;
+            getDurationString(m,s);
+        }
     }
 }
